@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="slide">
+      <section class="image">
+        <img :src="currenimage" />
+        <button @click="PrevSlide" class="prev">❮</button>
+        <button @click="NextSlide" class="next">❯</button>
+        <div class="dot">
+          <a v-for="(image,index) in images"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="60"
+              fill="currentColor"
+              class="bi bi-dot"
+              viewBox="0 0 16 16"
+              @click ="Change(index)"
+              :style="slideIndex === index ? {'color' : 'orange'} : {'color' : 'white'}"
+            >
+              <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
